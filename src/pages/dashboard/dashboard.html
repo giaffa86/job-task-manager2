@@ -1,0 +1,24 @@
+<ion-header>
+  <!--<ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>-->
+</ion-header>
+<ion-content padding>
+
+  <!-- <task-list [tasks]="tasks"></task-list>-->
+
+  
+  <ion-tabs>
+    <ion-tab tabIcon="create" tabTitle="In bozza" [root]="tabs[0]" [rootParams]="navParams.data.tabs[0]" tabBadge="{{tabCount[navParams.data.tabs[0].status]}}" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab tabIcon="clock" tabTitle="In attesa" [root]="tabs[1]" [rootParams]="navParams.data.tabs[1]" tabBadge="{{tabCount[navParams.data.tabs[1].status]}}" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab tabIcon="briefcase" tabTitle="In lavorazione" [root]="tabs[2]" [rootParams]="navParams.data.tabs[2]" tabBadge="{{tabCount[navParams.data.tabs[2].status]}}" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab tabIcon="checkmark" tabTitle="Completate" [root]="tabs[3]" [rootParams]="navParams.data.tabs[3]" tabBadge="" tabBadgeStyle="danger"></ion-tab>
+  </ion-tabs>`
+
+  <ion-fab right bottom>
+    <button ion-fab color="danger" (click)="openAddTaskPage($event)"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

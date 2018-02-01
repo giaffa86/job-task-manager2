@@ -1,0 +1,43 @@
+<ion-card *ngFor="let task of tasks">
+  <!--<img src="assets/img/nin-live.png"/>-->
+  <ion-card-content>
+    <ion-card-title>
+      {{task.title}}
+    </ion-card-title>
+    <p>
+      {{task.description}}
+    </p>
+  </ion-card-content>
+  <ion-row no-padding>
+    <ion-col>
+      <button ion-button clear small color="danger" icon-left (click)="openMapPage($event, task)">
+          <ion-icon name='pin'></ion-icon>
+          {{task.place}} , {{task.address}}
+        </button>
+    </ion-col>
+    <ion-col text-center>
+      <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='person'></ion-icon>
+          {{task.customer}}
+        </button>
+    </ion-col>
+    <ion-col text-right>
+      <button ion-button clear small color="danger" icon-left (click)="openViewTaskPage($event, task)" *ngIf="viewable">
+          <ion-icon name='open'></ion-icon>
+          Visualizza
+      </button>
+      <button ion-button clear small color="danger" icon-left (click)="openEditTaskPage($event, task)" *ngIf="editable">
+          <ion-icon name='create'></ion-icon>
+          Modifica
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>
+
+<ion-card *ngIf="tasks && tasks.length === 0">
+  <ion-card-content>
+    <ion-card-title>
+      Nessuna attività disponibile!
+    </ion-card-title>
+  </ion-card-content>
+</ion-card>

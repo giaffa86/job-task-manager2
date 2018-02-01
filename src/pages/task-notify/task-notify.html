@@ -1,0 +1,26 @@
+<!--
+  Generated template for the TaskNotify page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Invia a ...</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Seleziona/Deseleziona tutti</ion-label>
+      <ion-checkbox [(ngModel)]="allSelected" (ionChange)="onSelectAll()"></ion-checkbox>
+    </ion-list-header>
+    <ion-item *ngFor="let u of users | async">
+      <ion-label>{{loadUser(u).fullname}}</ion-label>
+      <ion-checkbox [(ngModel)]="checked[u.pushToken]" disabled="{{isDisabled(u)}}"></ion-checkbox>
+    </ion-item>
+    <button ion-button color="primary" block (click)="forward()">Conferma</button>
+  </ion-list>
+</ion-content>

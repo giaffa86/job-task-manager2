@@ -1,0 +1,19 @@
+<!--
+  Generated template for the TabTasks component.
+
+  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar (input)="filterTasks($event)"></ion-searchbar>
+  <task-list [tasks]="tasks" [viewable]="canViewTask" [editable]="canEditTask"></task-list>
+</ion-content>
